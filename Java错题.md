@@ -1,0 +1,50 @@
+# Java基础
+
+#### String
+
+- String对象不可变，StringBuffer（线程安全）对象可变
+
+  - String str = "aa";  str = "aa"+"bb";  此时str的值为"aabb"，但是"aabb"不是在开始的字符串"aa"后面直接连接的"bb"，而是又新生成了字符串"aabb"，字符串"aa"一旦被初始化，那么它的值不可能再改变了。 StringBuffer strb = StringBuffer("aa");  strb.append("bb");  此时的strb的值也为"aabb"，但是"aabb"是直接在开始的字符串"aa"后面连接的“bb”，并没有生成新的字符串。
+
+- ```java
+  String str1 = "hello";
+  String str2 = "he" + new String("llo");
+  String str3 = "he"+"llo";
+  System.err.println(str1 == str2);
+  //结果是false
+  //对于str1、str3，在编译期，就会把str1、3放入常量池中，这两个都是一样的（equal或者==）
+  //但对于str2，是在运行的时候，在堆中放入llo字符串，然后再讲“he”+"llo"进行拼接形成“hello”放入堆中，也就是str2是在堆中，而tr1、3在常量池中
+  //但是他们三个相互调用equal，都是true
+  ```
+
+#### 基础
+
+- java.lang包是java语言包，是自动导入的。 
+
+  java.util包是java的工具包，需要手动导入。 
+
+  java.sql包，JDBC接口类，需要手动导入。 
+
+  java.io;各种输入输入流，需要手动导入。 
+
+  system是属于java.lang.sysytem    
+
+- ![image-20200714100145387](C:\Users\asus\Desktop\面试\image-20200714100145387.png)
+
+- **i++    先赋值在计算结果；**
+
+- **++i    先计算结果再赋值**
+
+#### 查询
+
+- ResultSet中记录行的第一列索引为1
+
+#### 继承
+
+-   java为单继承，但可以实现多个接口 
+
+####　集合
+
+- list有序可重复，set无序不可重复
+
+​	
