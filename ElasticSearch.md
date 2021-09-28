@@ -68,7 +68,7 @@ PUT product/_settings
 
   4. 节点重启成功以后，在重启期间原master节点丢失了部分数据，那么此时要从R0-1复制P0没有的数据到P0中。
 
-![ES宕机](D:\面试\学习笔记\image\ES宕机.png)
+![ES宕机](.\image\ES宕机.png)
 
 ## 节点
 
@@ -124,7 +124,7 @@ PUT product/_settings
 
      - 如果有，并且筛选出来的主节点是自己
 
-     - ![Master选举](D:\面试\学习笔记\Master选举.png)
+     - ![Master选举](.\Master选举.png)
 
 
 - `GET /product/_search` 执行这个语句，会查询出product索引的所有数据
@@ -535,7 +535,7 @@ PUT product/_settings
 - text类型默认不创建正排索引 ，也就是不能进行聚合查询，但通过设置`fileddate=true`可以使text类型的字段进行聚合分析
 
   - ````json
-  put /product3_mapping
+    put /product3_mapping
     {
     	"properties" :{
     	"tags":{# 这个是字段名名字
@@ -588,7 +588,7 @@ PUT product/_settings
 
   - **index**：是否对当前字段创建索引，默认为true，如果是false，那么就是不创建索引，该字段不会通过所以很难被搜索到，但是仍然会zaisource元数据中展示，但是搜索会报错
 
-    - <img src="D:\面试\学习笔记\image-20210613174258930.png" alt="image-20210613174258930"  />
+    - <img src=".\image-20210613174258930.png" alt="image-20210613174258930"  />
 
   - analyzer:指定分析器
 
@@ -854,9 +854,9 @@ PUT product/_settings
 
 - `match_phrase_prefix`:
 
-  - ![image-20210622223738515](D:\面试\学习笔记\image-20210622223738515.png)
+  - ![image-20210622223738515](.\image-20210622223738515.png)
 
-  - ![image-20210622224003569](D:\面试\学习笔记\image-20210622224003569.png)
+  - ![image-20210622224003569](.\image-20210622224003569.png)
 
 
 
