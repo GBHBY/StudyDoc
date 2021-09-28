@@ -160,7 +160,7 @@
 
 - 在配置文件中配置RDB
 
-  - ![image-20210601172514465](D:\面试\面试学习笔记\image-20210601172514465.png)
+  - ![.\image-20210601172514465.png)
 
   - ````shell
      save 900 1
@@ -212,7 +212,7 @@
 
 ### 混合
 
-- 但redis4之后就使用rdb和aof混合的方式。rdb负载在某个时刻把内存整个数据dump到磁盘中，aof记录redis从dump开始，对redis key的更改操作。一句话rdb全量，aof增量。
+- 但redis4之后就可以使用rdb和aof混合的方式，但是4的时候默认关闭，5默认开启。rdb负载在某个时刻把内存整个数据dump到磁盘中，aof记录redis从dump开始，对redis key的更改操作。一句话rdb全量，aof增量。
   在数据进行重写的时候，redis会把rdb文件先进行重写进aof文件，然后把剩下的aof文件追加到重写的aof文件后面,在redis重启的时候，加载 aof 文件进行恢复数据：先加载 rdb 内容再加载剩余的 aof。
 - 开启混合存储模式后 AOF文件加载的流程如下:
   - AOF文件开头是 RDB的格式, 先加载 RDB内容再加载剩余的 AOF
