@@ -124,7 +124,7 @@ PUT product/_settings
 
      - 如果有，并且筛选出来的主节点是自己
 
-     - ![Master选举](.\Master选举.png)
+     - ![Master选举](.\image\Master选举.png)
 
 
 - `GET /product/_search` 执行这个语句，会查询出product索引的所有数据
@@ -854,9 +854,9 @@ PUT product/_settings
 
 - `match_phrase_prefix`:
 
-  - ![image-20210622223738515](.\image-20210622223738515.png)
+  - ![image-20210622223738515](.\image\image-20210622223738515.png)
 
-  - ![image-20210622224003569](.\image-20210622224003569.png)
+  - ![image-20210622224003569](.\image\image-20210622224003569.png)
 
 
 
