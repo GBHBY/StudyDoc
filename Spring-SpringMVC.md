@@ -2,14 +2,9 @@
 
 ## AOP
 
-- AOP：面向切面编程，过滤器也是一种AOP，AOP是对传统面向对象编程（OOP）的补充
-- AOP主要作用是：通过配置可以实现业务逻辑和系统服务分离。比如：事务控制、日志、权限等
-- AOP实现原理：**动态代理**，在运行期间对方法进行增强，不会产生新类
-- 底层原理
-  - **jdk动态代理**，被代理类需要实现接口（AOP默认使用jdk动态代理）
-    - jdk反射机制生成一个代理接口的匿名类，调用具体方法的时候使用invokerHandler
-    - 核心：`InvocationHandler`接口和`Proxy`类
-  - **cglib**动态代理，不需要继承任何接口，cglib包在Spring core内，但如果某个类被标记为final，就无法使用cglib做动态代理
+### 原理
+
+- 
 
 ##  IOC：Inversion Of Contro
 
