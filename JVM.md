@@ -63,7 +63,7 @@
 
 7. 成功返回，不成功，返回ClassNotFindClassException
 
-- ![image-20210615180708694](D:\面试\学习笔记\image\image-20210615180708694.png)
+- ![image-20210615180708694](image\image-20210615180708694.png)
 
 #### 为什么要**双亲委派**
 
