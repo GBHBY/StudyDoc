@@ -169,7 +169,7 @@ insert into tab_no_index values(1,'1'),(2,'2'),(3,'3'),(4,'4');
 
 session1只给一行加了排他锁，但是session2在请求其他行的排他锁的时候，会出现锁等待。原因是在没有索引的情况下，innodb只能使用表锁。
 
-2、创建带索引的表进行条件查询，innodb使用的是行锁
+2、创建带索引的表进行条件查询，innodb使用的是行锁。
 
 ```sql
 create table tab_with_index(id int,name varchar(10)) engine=innodb;
@@ -194,7 +194,7 @@ insert into tab_with_index  values(1,'4');
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
 |                       set autocommit=0                       |                       set autocommit=0                       |
 | select * from tab_with_index where id = 1 and name='1' for update |                                                              |
-|                                                              | select * from tab_with_index where id = 1 and name='4' for update<br />虽然session2访问的是和session1不同的记录，但是因为使用了相同的索引，所以需要等待锁 |
+|                                                              | select * from tab_with_index where id = 1 and name='4' for update<br />虽然session2访问的是和session1不同的记录，但是因为使用了相同的索引值 ，所以需要等待锁 |
 
 ### 锁等待
 
@@ -215,10 +215,6 @@ insert into tab_with_index  values(1,'4');
 
 - 通过show full processlist 可以查看当前MySQL都在执行什么sql，耗时多久了，耗时过长的可以通过kill id来杀死，不过一般不要这样做，除非是测试环境
 - 通过 show engine innodb status 查看是否存在锁表情况
-
-
-
-
 
 ### 总结
 
@@ -241,3 +237,9 @@ insert into tab_with_index  values(1,'4');
 - 尽量用相等条件访问数据，这样可以避免间隙锁对并发插入的影响； 不要申请超过实际需要的锁级别；除非必须，查询时不要显示加锁；
 - 对于一些特定的事务，可以使用表锁来提高处理速度或减少死锁的可能。
 
+## 如何避免Mysql主从不一致
+
+1. A发起写请求，更新了主库，再在缓存中设置一个标记，代表此数据已经更新，标记格式（ 用户ID+业务ID+其他业务维度）
+2. 设置此标记，要加上过期时间，可以为预估的主库和从库同步延迟的时间
+3. B发起读请求的时候，先判断此请求的业务在缓存中有没有更新标记
+4. 如果存在标记，走主库；如果没有走从库。
