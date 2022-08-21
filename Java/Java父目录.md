@@ -4,7 +4,7 @@
 
 ## [NIO](子目录/NIO.md)
 
-## [JVM](子目录/JVM知识点.md)
+## [JVM](子目录/JVM.md)
 
 ## [JUC](子目录/JUC.md)
 
