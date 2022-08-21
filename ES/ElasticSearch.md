@@ -147,15 +147,15 @@
 
 ### DSL
 
-- 查询索引
+#### 查询索引
 
-  - ````json
-    查询全部
-    GET /_cat/indices?v
-    
-    模糊搜索
-    GET /_cat/indices/indexName*?v
-    ````
+- ````json
+  查询全部
+  GET /_cat/indices?v
+  
+  模糊搜索
+  GET /_cat/indices/indexName*?v
+  ````
 
 - 查询所有
 

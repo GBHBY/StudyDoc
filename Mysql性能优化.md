@@ -86,7 +86,7 @@
      1. `````sql
         insert into tmp (`id_employee`) values 
         	<foreach collection="list" item = "item" separator=",">
-        	 #{item}
+        	 (#{item})
         	</foreach>
         
         `````
